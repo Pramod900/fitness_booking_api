@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Environment
+.env
+.venv/
+venv/
+env/
+
+# IDEs
+.vscode/
+.idea/
+
+# Static/media (optional)
+media/
+staticfiles/
+
+# Migrations cache
+**/migrations/*.pyc
+**/migrations/__pycache__/
+
