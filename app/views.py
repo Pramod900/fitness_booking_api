@@ -9,14 +9,8 @@ from pytz import timezone as pytz_timezone
 
 class FitnessClassListAPIView(APIView):
     def get(self, request):
-        user_timezone = request.GET.get('tz', 'Asia/Kolkata')
         classes = FitnessClass.objects.all()
-
-        classes = list(classes)
-        for cl in classes:
-            cl.start_time = timezone.localtime(cl.start_time, pytz_timezone(user_timezone))
-
-        serializer = FitnessClassSerializer(classes, many=True)
+        serializer = FitnessClassSerializer(classes, many=True, context={'request': request})
         return Response(serializer.data)
     
     
